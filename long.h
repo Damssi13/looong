@@ -1,0 +1,62 @@
+#ifndef LONG_H
+#define LONG_H
+
+#ifndef BUFFER_SIZE
+#define BUFFER_SIZE 1
+#endif
+
+#define UP 65362
+#define DOWN 65364
+#define RIGHT 65363
+#define LEFT 65361
+#define A 97
+#define W 119
+#define S 115
+#define D 100
+#define ESC 65307
+
+#define WALL "./textures/wall.xpm"
+#define AVATAR "./textures/avatar.xpm"
+#define SPACE "./textures/space.xpm"
+#define COINS "./textures/coin.xpm"
+#define EXIT "./textures/exit.xpm"
+
+typedef struct s_game{
+    void    *mlx_ptr;
+    void    *win_ptr;
+    void    *img_ptr;
+    char    **map;
+    int     map_x;
+    int     map_y;
+    int     p_count;
+    int     c_count;
+    int     e_count;
+    int     space_count;
+    int     player_x;
+    int     player_y;
+}t_game;
+
+char	*ft_strchr(char *s, int c);
+int 	ft_strlen(char *s);
+char	*ft_strdup(char *s1);
+char	*ft_strjoin(char *s1, char *s2);
+char	*get_next_line(int fd);
+void    read_map(t_game *data);
+void    allocate_map(t_game *data);
+void    check_rectangle(t_game *data);
+void    erorr_mssg(char *str);
+void    check_walls(t_game *data);
+void    check_characters(t_game *data);
+void    elements_position(t_game *data);
+void    map_checks(t_game *data);
+void    draw_map(t_game *data);
+char    *fimage_file(char c, t_game *data);
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include "./minilibx-linux/mlx.h"
+// #include <X11/keysym.h>
+
+#endif
