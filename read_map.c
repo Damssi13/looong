@@ -1,17 +1,17 @@
 #include "long.h"
 
-void    read_map(t_game *data)
+void    read_map(char *av,t_game *data)
 {
     int fd;
     int lines;
     char *line;
     
-    fd = open("map.ber", O_RDONLY);
+    fd = open(av, O_RDONLY);
     line = get_next_line(fd);
     data->map_y = ft_strlen(line);
     free(line);
     close(fd);
-    fd = open("map.ber", O_RDONLY);
+    fd = open(av, O_RDONLY);
     lines = 0;
     while((line = get_next_line(fd)))
     {

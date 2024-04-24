@@ -1,6 +1,6 @@
 #include "long.h"
 
-void    image_file(char c, t_game *data)
+void    ft_image_file(char c, t_game *data)
 {
     int i;
     i = 40;
@@ -15,8 +15,6 @@ void    image_file(char c, t_game *data)
         data->img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, AVATAR, &i,&i);
     else if(c == 'E')
         data->img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, EXIT, &i,&i);
-
-        
 }
 
 
@@ -31,12 +29,11 @@ void draw_map(t_game *data)
         y=0;
         while(y < data->map_y - 1)
         {
-            image_file(data->map[x][y], data);
+            ft_image_file(data->map[x][y], data);
             mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, (y * 40), (x * 40));
-            y++;
             mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+            y++;
         }        
     x++;
     }
-
 }   

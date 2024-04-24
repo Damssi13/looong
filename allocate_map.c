@@ -1,6 +1,6 @@
 #include "long.h"
 
-void allocate_map(t_game *data)
+void allocate_map(char *av,t_game *data)
 {
     int fd;
     int i;
@@ -9,7 +9,7 @@ void allocate_map(t_game *data)
     data->map = malloc(sizeof(char *) * (data->map_x + 1));
     if(!data->map)
         return;
-    fd = open("map.ber", O_RDONLY);
+    fd = open(av, O_RDONLY);
     i=0;
     while((tmp = get_next_line(fd)))
     {

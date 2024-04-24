@@ -32,6 +32,8 @@ typedef struct s_game{
     int     c_count;
     int     e_count;
     int     space_count;
+    int     c_total;
+    int     player_steps;
     int     player_x;
     int     player_y;
 }t_game;
@@ -41,16 +43,25 @@ int 	ft_strlen(char *s);
 char	*ft_strdup(char *s1);
 char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
-void    read_map(t_game *data);
-void    allocate_map(t_game *data);
+void    read_map(char *av, t_game *data);
+void    allocate_map(char *av, t_game *data);
 void    check_rectangle(t_game *data);
-void    erorr_mssg(char *str);
+void    erorr_mssg(char *str, t_game *data);
+void    exit_mssg(char *str);
 void    check_walls(t_game *data);
 void    check_characters(t_game *data);
 void    elements_position(t_game *data);
 void    map_checks(t_game *data);
 void    draw_map(t_game *data);
-char    *fimage_file(char c, t_game *data);
+void    image_file(char c, t_game *data);
+int     player_controle(int keycode, t_game *data);
+void    ft_putnbr(int n);
+void    ft_putchar(char c);
+void    ft_putstr(char *str);
+int     move_player(int i, int y, t_game *data);
+int     close_window(t_game *data);
+void    empty_all(t_game *data);
+void    checks_free(t_game *data);
 
 #include <stdlib.h>
 #include <stdio.h>
