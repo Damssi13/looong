@@ -1,0 +1,13 @@
+1- u still need to check the name of the extension
+2- to protect the pictures
+3- check for a valid path
+
+valid path
+{
+    Creat a dup for the map.
+    The starting position should be the P.
+    flood for 4 directions
+    target color:0 replacement:2
+    move
+    if you land on a 0 make it 2
+}

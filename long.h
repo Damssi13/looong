@@ -26,13 +26,17 @@ typedef struct s_game{
     void    *win_ptr;
     void    *img_ptr;
     char    **map;
+    char    **map2;
     int     map_x;
     int     map_y;
     int     p_count;
     int     c_count;
     int     e_count;
+    int     exit_x;
+    int     exit_y;
     int     space_count;
     int     c_total;
+    int     coins;
     int     player_steps;
     int     player_x;
     int     player_y;
@@ -45,6 +49,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
 void    read_map(char *av, t_game *data);
 void    allocate_map(char *av, t_game *data);
+void    duplicate_map(t_game *data);
 void    check_rectangle(t_game *data);
 void    erorr_mssg(char *str, t_game *data);
 void    exit_mssg(char *str);
@@ -62,12 +67,15 @@ int     move_player(int i, int y, t_game *data);
 int     close_window(t_game *data);
 void    empty_all(t_game *data);
 void    checks_free(t_game *data);
+void    path_check(t_game *data);
+
+int    flood(int x, int y, char replacement, t_game *data);
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include "./minilibx-linux/mlx.h"
+#include "minilibx-linux/mlx.h"
 // #include <X11/keysym.h>
 
 #endif

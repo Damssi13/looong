@@ -11,7 +11,8 @@ SRCS = 	get_next_line.c \
 		erorr_mssg.c\
 		draw_map.c\
 		move_player.c\
-		empty_all.c
+		empty_all.c\
+		path_check.c
 
 OBJS = $(SRCS:.c=.o)
 

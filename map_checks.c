@@ -9,6 +9,9 @@ void    map_checks(t_game *data)
     if(data->p_count != 1 || data->e_count != 1 || data->c_count == 0)
         erorr_mssg("Map elements are not valid !", data);
     elements_position(data);
+    // Just for initializing !
+    data->c_total = 0;
+    data->player_steps = 0;
 }
 
 void    check_rectangle(t_game *data)
@@ -67,9 +70,11 @@ void    elements_position(t_game *data)
             {
                 data->player_x = i;
                 data->player_y = j;
-                data->c_total = 0;
-                data->player_steps = 0;
-                break;
+            }
+            if(data->map[i][j] == 'E')
+            {
+                data->exit_x = i;
+                data->exit_y = j;
             }
             j++;
         }
