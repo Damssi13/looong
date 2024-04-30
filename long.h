@@ -68,7 +68,8 @@ int     close_window(t_game *data);
 void    empty_all(t_game *data);
 void    checks_free(t_game *data);
 void    path_check(t_game *data);
-
+void    dup_map_free(t_game *data);
+char	*ft_strcpy(char *dest, const char *src);
 int    flood(int x, int y, char replacement, t_game *data);
 
 #include <stdlib.h>

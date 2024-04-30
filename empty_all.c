@@ -30,3 +30,15 @@ void    checks_free(t_game *data)
     free(data->map);
     exit(0);
 }
+void    dup_map_free(t_game *data)
+{
+    int i;
+
+    i = 0;
+    while(data->map2[i])
+    {
+        free(data->map2[i]);
+        i++;
+    }
+    free(data->map2);
+}

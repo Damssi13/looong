@@ -1,6 +1,7 @@
 1- u still need to check the name of the extension
 2- to protect the pictures
 3- check for a valid path
+4- protect the map if it is empty
 
 valid path
 {

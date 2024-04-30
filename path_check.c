@@ -2,18 +2,23 @@
 #include <string.h>
 void    path_check(t_game *data)
 {
+    duplicate_map(data);
     data->coins = 0;
     if(flood(data->player_x, data->player_y,'2', data))
-        printf("valid");
+        return ;
     else
-        printf("unvalid");
-    
+    {
+        dup_map_free(data);
+        free(data->map);
+        exit_mssg("The path is not valid !");
+    }
+    dup_map_free(data);
 }
 
 int    flood(int x, int y, char replacement, t_game *data)
 {   
 
-    if(data->map2[x][y] == '1' || data->map2[x][y] == replacement)
+    if(data->map2[x][y] == '1' || data->map2[x][y] == replacement || data->map2[x][y] == 'E')
         return (0);
     if(data->map2[x][y] != '1')//you paint the empty space
     {
@@ -21,17 +26,15 @@ int    flood(int x, int y, char replacement, t_game *data)
             data->coins++;
         data->map2[x][y] = replacement;
     }
-    // if(data->map2[x][y] == 'E')
-    //     if(data->coins == data->c_count)
-    //         data->map2[x][y] = replacement;
-    //This condition if you already painted the coins and you get to the exit
     //recursive floodfill        
     flood(x+1,y,replacement,data);
     flood(x-1,y,replacement,data);
     flood(x,y+1,replacement,data);
     flood(x,y-1,replacement,data);
-    if(data->coins == data->c_count && data->map2[data->exit_x -1][data->exit_y -1] != '2' &&
-    data->map2[data->exit_x -1][data->exit_y -1] == '2')
+    if(data->coins == data->c_count && (data->map2[data->exit_x -1][data->exit_y] == '2'
+        || data->map2[data->exit_x +1][data->exit_y] == '2' 
+        || data->map2[data->exit_x][data->exit_y +1] == '2' 
+        || data->map2[data->exit_x][data->exit_y -1] == '2'))
         return(1);
     return(0);
 }

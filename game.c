@@ -21,16 +21,20 @@ int main(int ac, char **av)
     read_map(av[1], &data);
     allocate_map(av[1], &data);
     map_checks(&data); //checks
-    duplicate_map(&data);
+    // duplicate_map(&data);
     path_check(&data);
-    // data.mlx_ptr = mlx_init();
-    // // if(data.mlx_ptr == NULL)
-    // //     erorr_mssg("failed", &data);
 
-    // data.win_ptr = mlx_new_window(data.mlx_ptr, (40 * (data.map_y -1)), (40 * data.map_x), "GTA");
-    // draw_map(&data);
-    // mlx_key_hook(data.win_ptr, game_control, &data); //for moving and ESC close
-    // mlx_hook(data.win_ptr,17,0,close_window,&data); //for cross close
-    // mlx_loop(data.mlx_ptr);    
+    // for(int i = 0; i < 4;i++)
+    //     printf("%s", data.map2[i]);
+
+    data.mlx_ptr = mlx_init();
+    // if(!data.mlx_ptr)
+    //     erorr_mssg("Failed", &data);
+
+    data.win_ptr = mlx_new_window(data.mlx_ptr, (40 * (data.map_y -1)), (40 * data.map_x), "GTA");
+    draw_map(&data);
+    mlx_key_hook(data.win_ptr, game_control, &data); //for moving and ESC close
+    mlx_hook(data.win_ptr,17,0,close_window,&data); //for cross close
+    mlx_loop(data.mlx_ptr);    
     return 0;
 }           

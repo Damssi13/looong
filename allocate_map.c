@@ -24,12 +24,19 @@ void    duplicate_map(t_game *data)
 {
     int i;
     int j;
+
+    i = 0;
     data->map2 = malloc(sizeof(char *) * (data->map_x + 1));
     if(!data->map2)
         return ;
-    i = 0;
+    while(data->map[i])
+        data->map2[i++] = malloc(sizeof(char) * data->map_y +1);
     j = 0;
     while(data->map[j])
-        data->map2[i++] = data->map[j++];
-    data->map2[data->map_x] = NULL;
+    {
+        ft_strcpy(data->map2[j], data->map[j]);
+        j++;
+    }
+    data->map2[j] = NULL;
+    // data->map2[data->map_x] = NULL;
 }
