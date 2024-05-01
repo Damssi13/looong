@@ -93,17 +93,3 @@ char	*get_next_line(int fd)
 	pail = remaining(pail);
 	return (line);
 }
-
-// int main()
-// {
-//     int fd;
-//     char *line;
-//     fd = open("map.ber", O_RDONLY);
-
-//     while((line = get_next_line(fd)) != NULL)
-//     {
-//         printf("%s",line);
-//     }
-    
-//     close(fd);
-// }

@@ -13,6 +13,7 @@
 #define W 119
 #define S 115
 #define D 100
+#define Q 113
 #define ESC 65307
 
 #define WALL "./textures/wall.xpm"
@@ -20,6 +21,16 @@
 #define SPACE "./textures/space.xpm"
 #define COINS "./textures/coin.xpm"
 #define EXIT "./textures/exit.xpm"
+#define A_RIGHT "./textures/sprites/right.xpm"
+#define A_LEFT "./textures/sprites/left.xpm"
+#define A_BACK "./textures/sprites/back.xpm"
+
+#include <stdlib.h>
+#include "./libft/libft.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include "./minilibx-linux/mlx.h"
 
 typedef struct s_game{
     void    *mlx_ptr;
@@ -60,23 +71,18 @@ void    map_checks(t_game *data);
 void    draw_map(t_game *data);
 void    image_file(char c, t_game *data);
 int     player_controle(int keycode, t_game *data);
-void    ft_putnbr(int n);
-void    ft_putchar(char c);
-void    ft_putstr(char *str);
-int     move_player(int i, int y, t_game *data);
+int     move_player(int i, int y, char *img,t_game *data);
 int     close_window(t_game *data);
 void    empty_all(t_game *data);
 void    checks_free(t_game *data);
 void    path_check(t_game *data);
 void    dup_map_free(t_game *data);
-char	*ft_strcpy(char *dest, const char *src);
-int    flood(int x, int y, char replacement, t_game *data);
+int     flood(int x, int y, char replacement, t_game *data);
+int     game_control(int keycode, t_game *data);
+void	check_name(char *name);
+void    redraw_map(t_game *data, char *img);
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include "minilibx-linux/mlx.h"
+
 // #include <X11/keysym.h>
 
 #endif

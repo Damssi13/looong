@@ -1,29 +1,15 @@
 #include "long.h"
-#include "./minilibx-linux/mlx.h"
-     
-
-int    game_control(int keycode, t_game *data)
-{
-    if(keycode == ESC)
-        empty_all(data);
-    else
-        player_controle(keycode, data);
-    return(0);
-}
-
-
+    
 int main(int ac, char **av)
 {
     t_game data;
 
     if(ac != 2)
         exit_mssg("Arguments problem !");
+    check_name(av[1]);
     read_map(av[1], &data);
     allocate_map(av[1], &data);
     map_checks(&data); //checks
-    // duplicate_map(&data);
-    path_check(&data);
-
     // for(int i = 0; i < 4;i++)
     //     printf("%s", data.map2[i]);
 

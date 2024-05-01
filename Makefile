@@ -15,27 +15,26 @@ SRCS = 	get_next_line.c \
 		path_check.c
 
 OBJS = $(SRCS:.c=.o)
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
 
-all: $(NAME)
+all: $(NAME) 
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIBFT)       
 	$(CC) $(CFLAGS) $^ $(MLXFLAGS) -o $@
 
-
-# %.o: %.c
-# 	$(CC) -c $(CFLAGS) $< -o $@
-
+$(LIBFT): $(LIBFT_DIR)
+	make -C $(LIBFT_DIR)
 
 clean:
 	rm -f $(OBJS)
-
+	make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	rm -f $(NAME)
-
+	make fclean -C $(LIBFT_DIR) 
 
 re: fclean all
-
 
 .PHONY: all clean fclean re

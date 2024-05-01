@@ -37,3 +37,27 @@ void draw_map(t_game *data)
     x++;
     }
 }   
+void    redraw_map(t_game *data, char *img)
+{
+    int x;
+    int y;
+    int i;
+
+    i = 40;
+    x=0;
+    while(x < data->map_x)
+    {
+        y=0;
+        while(y < data->map_y - 1)
+        {
+            if(data->map[x][y] == 'P')
+                data->img_ptr = mlx_xpm_file_to_image(data->mlx_ptr, img, &i,&i);
+            else
+                ft_image_file(data->map[x][y], data);
+            mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, (y * 40), (x * 40));
+            mlx_destroy_image(data->mlx_ptr, data->img_ptr);
+            y++;
+        }        
+    x++;
+    }
+}

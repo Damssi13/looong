@@ -34,9 +34,8 @@ void    duplicate_map(t_game *data)
     j = 0;
     while(data->map[j])
     {
-        ft_strcpy(data->map2[j], data->map[j]);
+        ft_strlcpy(data->map2[j], data->map[j], data->map_y);
         j++;
     }
     data->map2[j] = NULL;
-    // data->map2[data->map_x] = NULL;
 }

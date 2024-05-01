@@ -8,6 +8,8 @@ void    read_map(char *av,t_game *data)
     
     fd = open(av, O_RDONLY);
     line = get_next_line(fd);
+    if(line == NULL)
+        exit_mssg("Unvalid !");
     data->map_y = ft_strlen(line);
     free(line);
     close(fd);
@@ -20,7 +22,7 @@ void    read_map(char *av,t_game *data)
     }
     data->map_x = lines;
     close(fd);
-    data->c_count = 0;
+    data->c_count = 0;//just for initializing
     data->e_count = 0;
     data->p_count = 0;
     data->space_count = 0;

@@ -14,6 +14,7 @@ void    empty_all(t_game *data)
         i++;
     }
     free(data->map);
+    dup_map_free(data);
     exit(0);
 }
 
@@ -28,7 +29,6 @@ void    checks_free(t_game *data)
         i++;
     }
     free(data->map);
-    exit(0);
 }
 void    dup_map_free(t_game *data)
 {

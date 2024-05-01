@@ -9,6 +9,7 @@ void    map_checks(t_game *data)
     if(data->p_count != 1 || data->e_count != 1 || data->c_count == 0)
         erorr_mssg("Map elements are not valid !", data);
     elements_position(data);
+    path_check(data);
     // Just for initializing !
     data->c_total = 0;
     data->player_steps = 0;
@@ -37,14 +38,13 @@ void    check_rectangle(t_game *data)
 void    check_walls(t_game *data)
 {
     int i;
-    int j;
     
-    j=0;
-    while(j < data->map_y - 1)
+    i = 0;
+    while(i < data->map_y - 1)
     {
-        if (data->map[0][j] != '1' || data->map[data->map_x - 1][j] != '1')
+        if (data->map[0][i] != '1' || data->map[data->map_x - 1][i] != '1')
             erorr_mssg("Map is not surrounded by walls !", data);
-        j++;
+        i++;
     }
     i=0;
     while (i < data->map_x)
@@ -108,25 +108,3 @@ void    check_characters(t_game *data)
         i++;
     }
 }
-
-// int main()
-// {
-//     // c_data chars; 
-//     // t_data data;
-//     // char **map;
-
-//     read_map(&data);
-//     allocate_map(&data);
-//     check_rectangle(&data);
-//     // check_walls(&data, map);
-//     // check_characters(&data, &chars, map);
-//     // if(chars.p_count != 1 || chars.e_count != 1 || chars.c_count == 0)
-//     // {
-//     //     printf("Map elements are not valid");
-//     //     exit(1);
-//     // }
-    
-    
-//     while(i < data.map_x)
-//         printf("%s", map[i++]);
-// }

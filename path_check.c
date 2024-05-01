@@ -9,8 +9,7 @@ void    path_check(t_game *data)
     else
     {
         dup_map_free(data);
-        free(data->map);
-        exit_mssg("The path is not valid !");
+        erorr_mssg("The path is not valid !", data);
     }
     dup_map_free(data);
 }
