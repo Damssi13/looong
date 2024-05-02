@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: reddamss <reddamss@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/02 16:14:51 by reddamss          #+#    #+#             */
+/*   Updated: 2024/05/02 16:14:52 by reddamss         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "long.h"
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -60,12 +72,12 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
-int 	ft_strlen(char *s)
+int	ft_strlen(char *s)
 {
-	int i;
+	int	i;
 
-	i=0;
-	while(s[i])
+	i = 0;
+	while (s[i])
 		i++;
-	return(i);
+	return (i);
 }

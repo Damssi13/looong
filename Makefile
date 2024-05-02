@@ -1,4 +1,4 @@
-NAME = long
+NAME = so_long
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -g
 MLXFLAGS = -L minilibx-linux -lmlx -lX11 -lXext 
@@ -7,7 +7,7 @@ SRCS = 	get_next_line.c \
 		game.c \
 		read_map.c\
 		allocate_map.c\
-		map_checks.c\
+		map_parsing.c\
 		erorr_mssg.c\
 		draw_map.c\
 		move_player.c\
@@ -15,7 +15,7 @@ SRCS = 	get_next_line.c \
 		path_check.c
 
 OBJS = $(SRCS:.c=.o)
-LIBFT_DIR = ./libft
+LIBFT_DIR = ../libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 

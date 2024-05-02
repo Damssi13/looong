@@ -19,3 +19,16 @@ valid path
     move
     if you land on a 0 make it 2
 }
+	data->c_count = 0;
+	data->e_count = 0;
+	data->p_count = 0;
+	data->space_count = 0;
+
+
+
+
+
+    protecet the picture
+    and check leaks 
+    and the exit number
+    
