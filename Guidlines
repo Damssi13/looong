@@ -4,6 +4,11 @@
 4- protect the map if it is empty --->DONE
 5- 2D dimensions pictures.---> DONE
 6- spites
+7- check if the fd == -1 after you open it.
+8- to print the moves on screen you need to use itoa strjoin
+9- there is a function called mlx_loop_hook for animation
+
+
 
 valid path
 {
